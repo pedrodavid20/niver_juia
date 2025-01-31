@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffccff;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        h1 {
+            color: #ff6699;
+        }
+        p {
+            color: #333;
+            font-size: 18px;
+        }
+        .btn {
+            display: none; /* Esconde o botão permanentemente */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Feliz Aniversário! 🎂
+            <br>    
+            🥳 Julia Morando no Monte Everest 🎊
+        </h1>
+    
+        <img src="URL_DA_IMAGEM" alt="Imagem de Aniversário">
+        
+        <p>🎉 Feliz aniversário parceiraaaa!!! 🎉
+            Que Deus ilumine grandemente a sua vida ✨, te dê muita saúde 🩺, paz ☮️🌿, paciência 🧘‍♀️🌿, dinheiro 💰 e tudo de bom. Que você continue sempre sendo essa pessoa tão legal que você é! 
+            <br>
+            Acho que nem preciso dizer que você é uma das pessoas que posso chamar de ✨amiga que a MISLASB me deu✨, e que por mais que você me traga alguns B.O's eu ainda gosto muito de você kkkkkkk😂❤️
+            <br>
+            Que você aproveite bastante o seu dia Lava Girl 🌋, se precisar de qualquer coisa pode me chamar.
+            <br>
+            OBS.: Para de me trazer B.O. as 17:30 da tarde por favor tá? kkkkkkk😂
+            <br><br>
+            TAMO JUNTO JULIA MORANDO NO MONTE EVEREST 🌋
+        </p>
+        <!-- Botão escondido -->
+        <button class="btn" id="iniciar-musica" onclick="iniciarMusica()">Clique para ouvir a música</button>
+    </div>
+
+    <audio id="musica">
+        <source src="{{ url_for('static', filename='audio/Manoel_gomes.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function iniciarMusica() {
+            var musica = document.getElementById("musica");
+            musica.play().then(() => {
+                console.log("Música iniciada com sucesso!");
+            }).catch(error => {
+                console.log("Erro ao tentar iniciar a música: ", error);
+            });
+        }
+
+        window.onload = function() {
+            // Simula o clique no botão para iniciar a música sem torná-lo visível
+            setTimeout(function() {
+                document.getElementById("iniciar-musica").click(); // Simula o clique após um pequeno delay
+            }, 100); // Atraso de 100ms antes de simular o clique
+        }
+    </script>
+</body>
+</html>

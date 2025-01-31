@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregando...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            max-width: 400px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff6699;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            height: 20px;
+            width: 0;
+            background-color: #ff6699;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carregando...</h1>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <p>Aguarde enquanto a página está sendo carregada.</p>
+    </div>
+
+    <audio id="musica">
+        <source src="{{ url_for('static', filename='audio/Manoel_gomes.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let progressBar = document.getElementById("progress-bar");
+        let progress = 0;
+
+        function carregar() {
+            if (progress < 100) {
+                progress += 1;
+                progressBar.style.width = progress + "%";
+            } else {
+                // Após o carregamento, redireciona para a página de aniversário
+                window.location.href = "PARABENS!!!!"; // A página de "Feliz Aniversário"
+            }
+        }
+
+        // Inicia a música no carregamento
+        window.onload = function() {
+            var musica = document.getElementById("musica");
+            musica.play().catch(error => {
+                console.log("Erro ao tentar iniciar a música: ", error);
+            });
+        }
+
+        setInterval(carregar, 50); // A cada 50ms, aumenta o progresso até 100%
+    </script>
+</body>
+</html>
