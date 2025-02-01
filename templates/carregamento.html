@@ -53,8 +53,21 @@
     <audio id="musica">
         <source src="{{ url_for('static', filename='audio/Elevador_music.mp3') }}" type="audio/mpeg">
     </audio>
-
+    
     <script>
+        let musica = document.getElementById("musica");
+    
+        function iniciarMusica() {
+            musica.volume = 1.0;
+            musica.play().then(() => {
+                console.log("Música iniciada com sucesso!");
+                document.removeEventListener("touchstart", iniciarMusica); // Remove o evento após tocar
+            }).catch(error => {
+                console.log("Erro ao tentar iniciar a música: ", error);
+            });
+        }
+    
+        document.addEventListener("touchstart", iniciarMusica); // Inicia a música no primeiro toque
         let progressBar = document.getElementById("progress-bar");
         let progress = 0;
         let redirecionado = false; // Variável para garantir que o redirecionamento ocorre só uma vez
