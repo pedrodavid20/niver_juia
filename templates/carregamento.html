@@ -57,15 +57,17 @@
     <script>
         let progressBar = document.getElementById("progress-bar");
         let progress = 0;
+        let redirecionado = false; // Variável para garantir que o redirecionamento ocorre só uma vez
         let musicaIniciada = false; // Variável para evitar tocar a música várias vezes
     
         function carregar() {
             if (progress < 100) {
                 progress += 1;
                 progressBar.style.width = progress + "%";
-            } else {
-                // Após o carregamento, redireciona para a página de parabéns
-                window.location.href = "/parabens"; // Corrigindo a URL de destino
+            } else if (!redirecionado) { // Só redireciona uma vez
+                redirecionado = true;
+                clearInterval(intervalo); // Para o carregamento
+                window.location.href = "/parabens"; // Redireciona para a página de aniversário
             }
         }
     
@@ -76,14 +78,14 @@
             if (!musicaIniciada) {
                 musica.play().then(() => {
                     console.log("Música iniciada com sucesso!");
-                    musicaIniciada = true; // Garante que a música só toca uma vez
+                    musicaIniciada = true;
                 }).catch(error => {
                     console.log("Erro ao tentar iniciar a música: ", error);
                 });
             }
         };
     
-        setInterval(carregar, 50); // A cada 50ms, aumenta o progresso até 100%
+        let intervalo = setInterval(carregar, 50); // A cada 50ms, aumenta o progresso até 100%
     </script>
 </body>
 </html>
