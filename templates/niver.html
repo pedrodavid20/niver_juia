@@ -28,6 +28,28 @@
         .btn {
             display: none; /* Esconde o botão permanentemente */
         }
+        img {
+            max-width: 30%;
+            height: auto;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 14px;
+            }
+            img {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -37,18 +59,18 @@
             🥳 Julia Morando no Monte Everest 🎊
         </h1>
     
-        <img src="URL_DA_IMAGEM" alt="Imagem de Aniversário">
+        <img src="static/Niver_juia.png" alt="Imagem de Aniversário">
         
         <p>🎉 Feliz aniversário parceiraaaa!!! 🎉
             Que Deus ilumine grandemente a sua vida ✨, te dê muita saúde 🩺, paz ☮️🌿, paciência 🧘‍♀️🌿, dinheiro 💰 e tudo de bom. Que você continue sempre sendo essa pessoa tão legal que você é! 
             <br>
-            Acho que nem preciso dizer que você é uma das pessoas que posso chamar de ✨amiga que a MISLASB me deu✨, e que por mais que você me traga alguns B.O's eu ainda gosto muito de você kkkkkkk😂❤️
+            Acho que nem preciso dizer que você é uma das pessoas que posso chamar de ✨amiga que a MISLASB me deu✨, e que por mais que você me traga alguns B.O's no fim e no começo do turno eu ainda gosto muito de você kkkkkkk😂
             <br>
             Que você aproveite bastante o seu dia Lava Girl 🌋, se precisar de qualquer coisa pode me chamar.
             <br>
             OBS.: Para de me trazer B.O. as 17:30 da tarde por favor tá? kkkkkkk😂
             <br><br>
-            TAMO JUNTO JULIA MORANDO NO MONTE EVEREST 🌋
+            TAMO JUNTO JULIA MORANDO NO MONTE EVEREST 🌋🎉❤️
         </p>
         <!-- Botão escondido -->
         <button class="btn" id="iniciar-musica" onclick="iniciarMusica()">Clique para ouvir a música</button>
@@ -67,12 +89,12 @@
                 console.log("Erro ao tentar iniciar a música: ", error);
             });
         }
-
+    
         window.onload = function() {
-            // Simula o clique no botão para iniciar a música sem torná-lo visível
+            // Aguarda 0.5 segundos após o carregamento da página antes de tocar a música
             setTimeout(function() {
-                document.getElementById("iniciar-musica").click(); // Simula o clique após um pequeno delay
-            }, 100); // Atraso de 100ms antes de simular o clique
+                document.getElementById("iniciar-musica").click();
+            }, 500); // 500ms de atraso
         }
     </script>
 </body>

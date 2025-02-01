@@ -51,13 +51,13 @@
     </div>
 
     <audio id="musica">
-        <source src="{{ url_for('static', filename='audio/Manoel_gomes.mp3') }}" type="audio/mpeg">
+        <source src="{{ url_for('static', filename='audio/Elevador_music.mp3') }}" type="audio/mpeg">
     </audio>
 
     <script>
         let progressBar = document.getElementById("progress-bar");
         let progress = 0;
-
+    
         function carregar() {
             if (progress < 100) {
                 progress += 1;
@@ -67,15 +67,16 @@
                 window.location.href = "PARABENS!!!!"; // A página de "Feliz Aniversário"
             }
         }
-
-        // Inicia a música no carregamento
+    
+        // Inicia a música no carregamento com volume máximo
         window.onload = function() {
             var musica = document.getElementById("musica");
+            musica.volume = 1.0; // Define o volume máximo
             musica.play().catch(error => {
                 console.log("Erro ao tentar iniciar a música: ", error);
             });
         }
-
+    
         setInterval(carregar, 50); // A cada 50ms, aumenta o progresso até 100%
     </script>
 </body>
