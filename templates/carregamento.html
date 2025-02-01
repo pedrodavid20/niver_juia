@@ -61,11 +61,16 @@
             musica.volume = 1.0;
             musica.play().then(() => {
                 console.log("Música iniciada com sucesso!");
-                document.removeEventListener("touchstart", iniciarMusica); // Remove o evento após tocar
+                document.removeEventListener("touchstart", iniciarMusica);
+                document.removeEventListener("click", iniciarMusica);
             }).catch(error => {
                 console.log("Erro ao tentar iniciar a música: ", error);
             });
         }
+    
+        // Detecta toque ou clique para iniciar a música
+        document.addEventListener("touchstart", iniciarMusica);
+        document.addEventListener("click", iniciarMusica);
     
         document.addEventListener("touchstart", iniciarMusica); // Inicia a música no primeiro toque
         let progressBar = document.getElementById("progress-bar");
