@@ -57,25 +57,31 @@
     <script>
         let progressBar = document.getElementById("progress-bar");
         let progress = 0;
+        let musicaIniciada = false; // Variável para evitar tocar a música várias vezes
     
         function carregar() {
             if (progress < 100) {
                 progress += 1;
                 progressBar.style.width = progress + "%";
             } else {
-                // Após o carregamento, redireciona para a página de aniversário
-                window.location.href = "PARABENS"; // A página de "Feliz Aniversário"
+                // Após o carregamento, redireciona para a página de parabéns
+                window.location.href = "/parabens"; // Corrigindo a URL de destino
             }
         }
     
-        // Inicia a música no carregamento com volume máximo
         window.onload = function() {
             var musica = document.getElementById("musica");
-            musica.volume = 1.0; // Define o volume máximo
-            musica.play().catch(error => {
-                console.log("Erro ao tentar iniciar a música: ", error);
-            });
-        }
+            musica.volume = 1.0; // Define o volume no máximo
+    
+            if (!musicaIniciada) {
+                musica.play().then(() => {
+                    console.log("Música iniciada com sucesso!");
+                    musicaIniciada = true; // Garante que a música só toca uma vez
+                }).catch(error => {
+                    console.log("Erro ao tentar iniciar a música: ", error);
+                });
+            }
+        };
     
         setInterval(carregar, 50); // A cada 50ms, aumenta o progresso até 100%
     </script>
