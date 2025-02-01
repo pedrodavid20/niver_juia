@@ -6,7 +6,7 @@ app = Flask(__name__)
 def index():
     return render_template("carregamento.html")
 
-@app.route("/PARABENS!!!!")
+@app.route("/PARABENS")
 def niver():
     return render_template("niver.html")
 
